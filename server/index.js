@@ -1,25 +1,42 @@
 const express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
+const app = express();
+const bodyParser = require('body-parser');
+const database = require('../database');
+const port = 3000;
 
-app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/users', function (req, res) {
-  console.log('getting username from client', req.body)
-  res.status(201).send();
-  // res.end();
+
+app.get('/username', function (req, res) {
+  // console.log('this is req.body!!!!! ======> ', req.body)
+  database.connection.query('SELECT * FROM users', (error, results, fields) => {
+    // console.log('connected to the database');
+    if (error) {
+      console.log('error')
+    } else {
+      console.log('these are results & fields', results, fields);
+      res.json(results);
+    }
+  })
 });
 
-app.get('/users', function (req, res) {
-  console.log('this is req.body!!!!! ======> ', req.body)
-  res.status(200).send();
+
+app.get('/channels', function (req, res) {
+  // console.log('this is req.body!!!!! ======> ', req.body)
+  database.connection.query('SELECT * FROM channels', (error, results, fields) => {
+    // console.log('connected to the database');
+    if (error) {
+      console.log('error')
+    } else {
+      console.log('these are results & fields', results, fields);
+      res.json(results);
+    }
+  })
 });
 
-let port = 3000;
 
-// app.listen(port, function () {
-//   console.log(`listening on port ${port}`);
-// });
 
+
+app.listen(port, () => console.log(`App listening on port ${port}!`))
