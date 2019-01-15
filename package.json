@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
-    "start-database": "mysql -uroot -p < Schema.sql",
+    "start-database": "mysql -uroot -p < database/Schema.sql",
     "seed-database": "node database/fakeData.js",
     "test": "jest"
   },

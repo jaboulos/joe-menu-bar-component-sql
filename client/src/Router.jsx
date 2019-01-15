@@ -8,20 +8,21 @@ import Followers from './components/Followers.jsx';
 
 
 const AppRouter = (props) => {
-  console.log('props.userinfo.users =====>', props)
+  console.log('props=======>' ,props)
+  const userInfo = props.userInfo;
   return (
     <Router>
       <div>
         <nav>
           <ul style={styles.nav}>
             <li style={styles.navItem}>
-              <img style={styles.logo} src={props.userInfo.logo} />
+              <img style={styles.logo} src={userInfo.users[userInfo.selectedUser].logo} />
             </li>
             <li style={styles.navItem}>
-              <Link to="/" style={styles.link}>{props.userInfo.display_name}</Link>
+              <Link to="/" style={styles.link}>{userInfo.users[userInfo.selectedUser].display_name}</Link>
             </li>
             <li style={styles.navItem}>
-              <Link to="/Videos" style={styles.link}>Videos  {props.userInfo.Videos}</Link>
+              <Link to="/Videos" style={styles.link}>Videos  {userInfo.users[userInfo.selectedUser].Videos}</Link>
             </li>
             <li style={styles.navItem}>
               <Link to="/Clips" style={styles.link}>Clips</Link>
@@ -30,10 +31,10 @@ const AppRouter = (props) => {
               <Link to="/Events" style={styles.link}>Events</Link>
             </li>
             <li style={styles.navItem}>
-              <Link to="/Followers" style={styles.link}>Followers  {props.userInfo.followers}</Link>
+              <Link to="/Followers" style={styles.link}>Followers  {userInfo.users[userInfo.selectedUser].followers}</Link>
             </li>
             <li style={styles.navItem}>
-              <Link to="/Following" style={styles.link}>Following  {props.userInfo.following} </Link>
+              <Link to="/Following" style={styles.link}>Following  {userInfo.users[userInfo.selectedUser].following} </Link>
             </li>
           </ul>
           <button style={styles.navRight} >Subscribe</button>

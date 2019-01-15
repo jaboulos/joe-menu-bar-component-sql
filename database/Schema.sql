@@ -15,14 +15,6 @@ CREATE TABLE users (
 	PRIMARY KEY (user_id)
 );
 
-CREATE TABLE channels (
-	channel_id INT AUTO_INCREMENT,
-	display_name VARCHAR (100) NOT NULL,
-	logo VARCHAR (200) NOT NULL,
-	category VARCHAR (100) NOT NULL,
-	PRIMARY KEY (channel_id)
-);
-
 CREATE TABLE followers (
 	follower_id INT AUTO_INCREMENT,
 	display_name VARCHAR (100) NOT NULL,

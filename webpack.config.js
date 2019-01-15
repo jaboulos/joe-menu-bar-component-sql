@@ -8,14 +8,19 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-  module : {
+  module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader'
+        test: /\.jsx?/,
+        include: SRC_DIR,
+        loader: 'babel-loader',
+        query: {
+          presets: ['@babel/react', '@babel/env']
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }

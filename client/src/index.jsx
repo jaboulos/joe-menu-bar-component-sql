@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SideBar from './components/SideBar.jsx';
 import AppRouter from './Router.jsx';
+import { ifError } from 'assert';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      followedUser: null,
+      followedCategory: null,
+      followedLogo: null,
+      users: [],
+      selectedUser: 0
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.displayStreamerVideos = this.displayStreamerVideos.bind(this);
   }
 
   handleClick (e) {
@@ -17,13 +24,12 @@ class App extends React.Component {
     if(!this.state.toggle || this.state.followedUser === null) {
       this.setState({
         toggle: 'On',
-        followedUser: this.state.display_name,
-        followedCategory: this.state.category,
-        followedLogo: this.state.logo,
+        followedUser: this.state.users[this.state.selectedUser].display_name,
+        followedCategory: this.state.users[this.state.selectedUser].category,
+        followedLogo: this.state.users[this.state.selectedUser].logo,
         followers: newFollowers + 1
       })
     } else {
-      console.log(this.state)
       this.setState({
         followedUser: null,
         followedCategory: null,
@@ -33,33 +39,20 @@ class App extends React.Component {
     }
   }
 
+  displayStreamerVideos(e, index) {
+    //when username on sidebar is clicked
+    //that specific user's information shows up underneath the route
+    console.log('index', index, "e", e)
+    this.setState({ selectedUser: index })
+  }
+
   componentDidMount() {
     fetch('/username')
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            category: result[0].category,
-            display_name: result[0].display_name,
-            followers: result[0].followers,
-            following: result[0].following,
-            logo: result[0].logo,
-            profile_image_url: result[0].profile_image_url,
-            users: result
-          })
-        },
-        (error) => {
-          console.log('error')
-        }
-      )
-
-      fetch('/channels')
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log('channels results =====> ', result)
-          this.setState({
-            channels: result
+            users: [...result]
           })
         },
         (error) => {
@@ -70,12 +63,13 @@ class App extends React.Component {
   }
 
   render() {
+    const sidebar = this.state.users.length ? <SideBar userInfo={this.state} onSelect={this.displayStreamerVideos}/> : null;
+    const appRouter = this.state.users.length ? <AppRouter userInfo={this.state} onClick={(e) => this.handleClick(e)}/> : null;
     return (
 
-
       <div>
-        <AppRouter userInfo={this.state} onClick={(e) => this.handleClick(e)}/>
-        <SideBar userInfo={this.state} />
+        {appRouter}
+        {sidebar}
       </div>
     )
   }

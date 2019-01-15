@@ -23,19 +23,6 @@ app.get('/username', function (req, res) {
 });
 
 
-app.get('/channels', function (req, res) {
-  // console.log('this is req.body!!!!! ======> ', req.body)
-  database.connection.query('SELECT * FROM channels', (error, results, fields) => {
-    // console.log('connected to the database');
-    if (error) {
-      console.log('error')
-    } else {
-      console.log('these are results & fields', results, fields);
-      res.json(results);
-    }
-  })
-});
-
 
 
 

@@ -1,60 +1,33 @@
 import React from 'react';
 
 const SideBar = (props) => {
-  const channelsInfo = props.userInfo.channels;
-  let recommendedChannelOneLogo;
-  let recommendedChannelTwoLogo;
-  let recommendedChannelThreeLogo;
-  let recommendedChannelOneCategory;
-  let recommendedChannelTwoCategory;
-  let recommendedChannelThreeCategory;
-  let recommendedChannelOneDisplayName;
-  let recommendedChannelTwoDisplayName;
-  let recommendedChannelThreeDisplayName;
-
-  if(channelsInfo){
-    recommendedChannelOneLogo = channelsInfo[0].logo;
-    recommendedChannelTwoLogo = channelsInfo[1].logo;
-    recommendedChannelThreeLogo = channelsInfo[2].logo;
-    recommendedChannelOneCategory = channelsInfo[0].category;
-    recommendedChannelTwoCategory = channelsInfo[1].category;
-    recommendedChannelThreeCategory = channelsInfo[2].category;
-    recommendedChannelOneDisplayName = channelsInfo[0].display_name;
-    recommendedChannelTwoDisplayName = channelsInfo[1].display_name;
-    recommendedChannelThreeDisplayName = channelsInfo[2].display_name;
-  }
-
-  console.log(channelsInfo)
-
+  const userInfo = props.userInfo.users;
+  const firstThree = userInfo.slice(0, 3);
+  const three = firstThree.map((user, index) => {
     return (
-      <div style={styles.background}>
-        <h3 style={styles.h3}>Followed Channels</h3>
-        <div style={styles.div}>
-          <img src={props.userInfo.followedLogo} style={styles.logo}/>
-          <div style={styles.username}>{props.userInfo.followedUser}</div>
-          <div style={styles.category}>{props.userInfo.followedCategory}</div>
-        </div>
-        <h3 style={styles.h3}>Recommended Channels</h3>
-        <div>
-        <div style={styles.div}>
-          <img src={recommendedChannelOneLogo} style={styles.logo}/>
-          <div style={styles.username}>{recommendedChannelOneDisplayName}</div>
-          <div style={styles.category}>{recommendedChannelOneCategory}</div>
-        </div>
-        <div style={styles.div}>
-          <img src={recommendedChannelTwoLogo} style={styles.logo}/>
-          <div style={styles.username}>{recommendedChannelTwoDisplayName}</div>
-          <div style={styles.category}>{recommendedChannelTwoCategory}</div>
-        </div>
-        <div style={styles.div}>
-          <img src={recommendedChannelThreeLogo} style={styles.logo}/>
-          <div style={styles.username}>{recommendedChannelThreeDisplayName}</div>
-          <div style={styles.category}>{recommendedChannelThreeCategory}</div>
-        </div>
-        </div>
+      <div key={index} style={styles.div} onClick={(e) => props.onSelect(e, index)}>
+      <img src={user.logo} style={styles.logo}/>
+      <div style={styles.username}>{user.display_name}</div>
+      <div style={styles.category}>{user.category}</div>
       </div>
     )
-  }
+  })
+
+  console.log('props.userInfo', props.userInfo,  props.userInfo.followedUser)
+
+  return (
+    <div style={styles.background}>
+    <h3 style={styles.h3}>Followed Channels</h3>
+     <div style={styles.div}>
+     <img src={props.userInfo.followedLogo} style={styles.logo}/>
+     <div style={styles.username}>{props.userInfo.followedUser}</div>
+     <div style={styles.category}>{props.userInfo.followedCategory}</div>
+     </div>
+    <h3 style={styles.h3}>Recommended Channels</h3>
+      {three}
+    </div>
+  )
+}
 
 const styles = {};
 
