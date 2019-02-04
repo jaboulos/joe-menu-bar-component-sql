@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/username')
+    fetch('http://localhost:3001/users')
       .then(res => res.json())
       .then(
         (result) => {
