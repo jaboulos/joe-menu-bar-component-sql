@@ -41,5 +41,10 @@ const UserDb = db.define('users', {
 	}
 })
 
+UserDb.sync({
+	alter: true,
+	// force: true,
+})
+
 module.exports = db;
 module.exports= UserDb;

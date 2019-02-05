@@ -9,6 +9,8 @@ require('events').EventEmitter.prototype._maxListeners = 1000;
 let count = 1;
 
 // use async and await to load large numbers of data into db
+// if you try to dont use the async function it'll timeout, create the fake data first, wait till thats finished
+  // then enter it into the db.  Node seems to have a max amount of 1000 entries
 // use 'insertMany()' method instead of 'create' for faster load times
 
 async function seedUser(outerLoop, innerLoop) {
@@ -32,4 +34,4 @@ async function seedUser(outerLoop, innerLoop) {
   }
 }
 
-seedUser(1, 10);
+seedUser(1000, 10000);
