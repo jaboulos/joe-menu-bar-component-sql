@@ -36,7 +36,7 @@ const UserDb = db.define('users', {
 	followers: {
 		type: Sequelize.STRING
 	},
-	following: {
+	Following: {
 		type: Sequelize.STRING
 	}
 })
