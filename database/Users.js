@@ -1,27 +1,45 @@
-DROP DATABASE users;
+const Sequelize = require('sequelize');
+const db = new Sequelize('sdc-menu-bar-component', 'joeboulos', '', {
+  host: 'localhost',
+  dialect: 'postgres',
+  operatorsAliases: false,
 
-CREATE DATABASE users;
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+});
 
-USE users;
+// test db connection
+db.authenticate()
+  .then(() => console.log('connected to postgreSQL'))
+  .catch(err => console.log('ERROR ' + err))
 
-CREATE TABLE users (
-	user_id INT AUTO_INCREMENT,
-	display_name VARCHAR (100) NOT NULL,
-	logo VARCHAR (200) NOT NULL,
-	profile_image_url VARCHAR (200) NOT NULL,
-	category VARCHAR (100) NOT NULL,
-	followers INT NOT NULL,
-	following INT NOT NULL,
-	PRIMARY KEY (user_id)
-);
-
-CREATE TABLE followers (
-	follower_id INT AUTO_INCREMENT,
-	display_name VARCHAR (100) NOT NULL,
-	logo VARCHAR (200) NOT NULL,
-	category VARCHAR (100) NOT NULL,
-	PRIMARY KEY (follower_id)
-);
+const UserDb = db.define('users', {
+	user_id: {
+		type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true
+	},
+	display_name: {
+		type: Sequelize.STRING
+	},
+	logo:{
+		type: Sequelize.STRING
+	},
+	profile_image_url: {
+		type: Sequelize.STRING
+	},
+	category: {
+		type: Sequelize.STRING
+	},
+	followers: {
+		type: Sequelize.STRING
+	},
+	following: {
+		type: Sequelize.STRING
+	}
+})
 
 module.exports = db;
-module.exports = UserDb;
+module.exports= UserDb;
