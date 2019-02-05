@@ -4,10 +4,10 @@
   "description": "Recreating Twitch Profile Service",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js",
-    "start-database": "mysql -uroot -p < database/Schema.sql",
-    "seed-database": "node database/fakeData.js",
+    "react": "webpack -d --watch",
+    "server": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "seed": "node database/fakeData.js",
     "test": "jest"
   },
   "author": "Milena Milano",
@@ -29,6 +29,7 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.0.0-beta6",
     "jest": "^23.6.0",
+    "nodemon": "^1.18.9",
     "sinon": "^7.2.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.4",
@@ -36,17 +37,23 @@
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
+    "artillery": "^1.6.0-26",
     "babel-jest": "^23.6.0",
-    "body-parser": "^1.17.0",
-    "express": "^4.15.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
     "faker": "^4.1.0",
     "jquery": "^3.1.1",
     "mysql": "^2.16.0",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
     "react": "^15.6.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^15.6.2",
     "react-router-dom": "^4.3.1",
     "regenerator-runtime": "^0.13.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "sequelize": "^4.42.0"
   }
 }
