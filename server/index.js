@@ -26,12 +26,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 // });
 
 app.get('/users', (req, res) => {
-  UserDb.findAll()
-    .then(data => {
-      console.log(data)
-      res.send('HEYOOOO')
+  UserDb.findAll({ limit : 20})
+    .then((data) => {
+      res.send(data)
     })
-    .catch(err => console.log(err));
+    .catch((err) => {
+      console.log('ERROR ', err)
+    })
 })
 
 const port = process.env.PORT || 3001;
