@@ -1,19 +1,6 @@
 const Sequelize = require('sequelize');
-// const db = new Sequelize('sdc-menu-bar-component', 'joeboulos', '', {
-//   host: 'localhost',
-//   dialect: 'postgres',
-//   operatorsAliases: false,
-
-//   pool: {
-//     max: 5,
-//     min: 0,
-//     acquire: 30000,
-//     idle: 10000
-//   },
-// });
-
-const db = new Sequelize('sdc_menu_bar', 'joeboulos', 'joe12345', {
-  host: 'sdc-menu-bar-component.c9xmi906eefk.us-east-2.rds.amazonaws.com',
+const db = new Sequelize('sdc-menu-bar-component', 'joeboulos', '', {
+  host: 'localhost',
   dialect: 'postgres',
   operatorsAliases: false,
 
@@ -24,6 +11,19 @@ const db = new Sequelize('sdc_menu_bar', 'joeboulos', 'joe12345', {
     idle: 10000
   },
 });
+
+// const db = new Sequelize('sdc_menu_bar', 'joeboulos', 'joe12345', {
+//   host: 'sdc-menu-bar-component.c9xmi906eefk.us-east-2.rds.amazonaws.com',
+//   dialect: 'postgres',
+//   operatorsAliases: false,
+
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   },
+// });
 
 // const db = new Sequelize('sdc-menu-bar-component', 'joeboulos', 'joe12345', {
 //   host: 'sdc-menu-bar-component.c9xmi906eefk.us-east-2.rds.amazonaws.com',
