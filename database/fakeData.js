@@ -34,4 +34,5 @@ async function seedUser(outerLoop, innerLoop) {
   }
 }
 
-seedUser(1000, 10000);
+// seedUser(1000, 10000);
+seedUser(1, 10);
