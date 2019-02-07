@@ -20,11 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/dist'));
 
-
-// app.get('/users', (req, res) => {
-//   res.send('TESTING');
-// });
-
 app.get('/users', (req, res) => {
   UserDb.findAll({ limit : 100})
     .then((data) => {
