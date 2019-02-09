@@ -41,7 +41,7 @@ app.get('/users', (req, res) => {
 //     console.log("Error: ", err);
 //   })
 // })
-app.get('findone', (req, res) => {
+app.get('/findone', (req, res) => {
   let id = req.body.user_id;
   UserDb.findOne({
     where: {
