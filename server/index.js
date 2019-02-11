@@ -8,7 +8,7 @@ const UserDb = require('../database/Users');
 const app = express();
 
 // database
-const db = require('../database/index');
+const db = require('../database/knexfile');
 
 // test db connection
 // db.authenticate()
