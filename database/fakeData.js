@@ -29,10 +29,10 @@ async function seedUser(outerLoop, innerLoop) {
       }
       arr.push(userObject);
     }
-    console.log('Seed successful', count++);
+    //console.log('Seed successful', count++);
     await UserDb.bulkCreate(arr);
   }
 }
 
-// seedUser(1000, 10000);
-seedUser(1, 10);
+seedUser(1000, 10000);
+// seedUser(1, 10);
