@@ -61,3 +61,6 @@ exports.down = function(knex, Promise) {
 
 // run the migration in terminal
 // knex migrate: latest
+
+// now that this works, create the seed with the command
+// knex seed:make 01_user
