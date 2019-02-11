@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('sdc-menu-bar-component', 'joeboulos', '', {
-  host: 'localhost',
+const db = new Sequelize('menubar', 'postgres', 'postgres', {
+  host: 'ec2-18-223-211-18.us-east-2.compute.amazonaws.com',
   dialect: 'postgres',
   operatorsAliases: false,
 
