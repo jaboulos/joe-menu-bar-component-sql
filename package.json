@@ -41,6 +41,7 @@
     "artillery": "^1.6.0-26",
     "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
+    "bookshelf": "^0.14.2",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
