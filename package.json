@@ -8,9 +8,10 @@
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
     "seed": "node database/fakeData.js",
+    "seedKnex": "node seeds/01_user.js",
     "test": "jest"
   },
-  "author": "Milena Milano",
+  "author": "Joe Boulos",
   "license": "MIT",
   "jest": {
     "setupTestFrameworkScriptFile": "./spec/enzymeConfig.js",
@@ -40,6 +41,7 @@
     "artillery": "^1.6.0-26",
     "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",
+    "bookshelf": "^0.14.2",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",

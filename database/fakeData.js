@@ -6,12 +6,6 @@ faker.locale = 'en_US';
 
 // stack overflow recommendation, node property
 require('events').EventEmitter.prototype._maxListeners = 1000;
-let count = 1;
-
-// use async and await to load large numbers of data into db
-// if you try to dont use the async function it'll timeout, create the fake data first, wait till thats finished
-  // then enter it into the db.  Node seems to have a max amount of 1000 entries
-// use 'insertMany()' method instead of 'create' for faster load times
 
 async function seedUser(outerLoop, innerLoop) {
   for(let i = 0; i < outerLoop; i++) {
@@ -29,10 +23,9 @@ async function seedUser(outerLoop, innerLoop) {
       }
       arr.push(userObject);
     }
-    //console.log('Seed successful', count++);
     await UserDb.bulkCreate(arr);
   }
 }
 
-seedUser(1000, 10000);
-// seedUser(1, 10);
+// seedUser(1000, 10000);
+seedUser(1, 10);
