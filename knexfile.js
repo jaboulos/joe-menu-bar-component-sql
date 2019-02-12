@@ -10,35 +10,30 @@ module.exports = {
       user: postgresUser,
       password: postgresPW,
       database: postgresDB
-    }
+    },
+    migrations: {
+      tableName: 'users'
+    },
+    seeds: {
+      directory: __dirname + "/seeds"
+    },
+
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: postgresDB,
+      user:     postgresUser,
+      password: postgresPW
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      tableName: 'users'
     }
-  }
+  },
+
 };
-
-// or
-
-// var knex = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     host: postgresURI,
-//     user: postgresUser,
-//     password: postgresPW,
-//     database: postgresDB
-//   }
-// });
-
