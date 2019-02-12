@@ -8,9 +8,10 @@
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
     "seed": "node database/fakeData.js",
+    "seedKnex": "node seeds/01_user.js",
     "test": "jest"
   },
-  "author": "Milena Milano",
+  "author": "Joe Boulos",
   "license": "MIT",
   "jest": {
     "setupTestFrameworkScriptFile": "./spec/enzymeConfig.js",

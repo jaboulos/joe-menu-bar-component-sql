@@ -6,6 +6,7 @@ faker.locale = 'en_US';
 // stack overflow recommendation, node property
 require('events').EventEmitter.prototype._maxListeners = 1000;
 
+/*
 module.exports = [
   {
     display_name: faker.internet.userName(),
@@ -16,9 +17,10 @@ module.exports = [
     Following: faker.random.number(),
   }
 ];
+*/
 
 /*
-async function seedUser(outerLoop, innerLoop) {
+module.exports = async function seedUser(outerLoop, innerLoop) {
   for(let i = 0; i < outerLoop; i++) {
     // need to insert an array of objects into the db
     let arr = [];
@@ -41,3 +43,4 @@ async function seedUser(outerLoop, innerLoop) {
 // seedUser(1000, 10000);
 seedUser(1, 10);
 */
+

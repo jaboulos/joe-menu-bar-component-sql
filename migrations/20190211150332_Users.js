@@ -26,10 +26,9 @@ exports.down = function(knex, Promise) {
 // knex migrate: latest
 */
 
-
 exports.up = function(knex, Promise) {
-  knex.schema.dropTableIfExists('users')
-  .then(() => {
+  // knex.schema.dropTableIfExists('users')
+  // .then(() => {
     return knex.schema.createTable('users', (table) => {
       // user_id increments, primary
       table.increments('user_id').primary();
@@ -46,7 +45,7 @@ exports.up = function(knex, Promise) {
       // Following integer
       table.integer('Following');
     })
-  })
+  //})
   .then(() => {
     // table created
   })
@@ -60,7 +59,7 @@ exports.down = function(knex, Promise) {
 };
 
 // run the migration in terminal
-// knex migrate: latest
+// knex migrate:latest
 
 // now that this works, create the seed with the command
 // knex seed:make 01_user
