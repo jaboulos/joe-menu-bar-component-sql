@@ -30,15 +30,3 @@ module.exports = {
   }
 };
 
-// or
-
-// var knex = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     host: postgresURI,
-//     user: postgresUser,
-//     password: postgresPW,
-//     database: postgresDB
-//   }
-// });
-
