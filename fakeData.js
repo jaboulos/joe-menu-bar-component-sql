@@ -6,7 +6,7 @@ faker.locale = 'en_US';
 // stack overflow recommendation, node property
 require('events').EventEmitter.prototype._maxListeners = 1000;
 
-/*
+
 module.exports = [
   {
     display_name: faker.internet.userName(),
@@ -17,7 +17,7 @@ module.exports = [
     Following: faker.random.number(),
   }
 ];
-*/
+
 
 /*
 module.exports = async function seedUser(outerLoop, innerLoop) {
