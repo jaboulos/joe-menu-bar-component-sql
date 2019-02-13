@@ -24,6 +24,7 @@ app.get('/users', (req, res) => {
 */
 
 app.get('/users', (req, res) => {
+  // knex.raw('select * from users order by user_id asc limit 10')
   knex.raw('select * from users order by user_id asc limit 10')
   .then((users)=>{
     res.send(users);
