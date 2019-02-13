@@ -52,7 +52,7 @@ class App extends React.Component {
       .then(
         (result) => {
           this.setState({
-            users: [...result]
+            users: [result]
           })
         },
         (error) => {
