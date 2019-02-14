@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/dist'));
 
+
 // GET ALL
 // knex raw method
 app.get('/users', (req, res) => {
@@ -34,6 +35,7 @@ app.get('/users', (req, res) => {
 //       console.log('Error: ', err);
 //     })
 // })
+
 
 // GET ONE
 app.get('/oneuser', (req, res) => {
@@ -94,6 +96,7 @@ app.post('/create', (req, res) => {
 //   })
 // });
 
+
 // UPDATE
 // works, but working out on having it send json of the updated user correctly
 app.put('/users/:user_id', (req, res) => {
@@ -109,7 +112,6 @@ app.put('/users/:user_id', (req, res) => {
   })
 });
 
-// has a bug im working on fixing
 // app.put('/users/:user_id', (req, res) => {
 //   // update the table, set , concatanate the field you want to change (user_id) where the user_id = the value you enter (the params user_id)
 //   knex.raw('update users set ' + req.body.field + ' = ? where user_id = ?', [req.body.value, req.params.user_id])
@@ -120,6 +122,7 @@ app.put('/users/:user_id', (req, res) => {
 //     console.log('Error: ', err)
 //   })
 // });
+
 
 // DELETE
 //knex raw
@@ -144,6 +147,7 @@ app.delete('/users/:user_id', (req, res) => {
 //       console.log('Error: ', err)
 //     })
 // });
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
