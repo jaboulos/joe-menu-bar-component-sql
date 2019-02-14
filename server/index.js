@@ -39,7 +39,7 @@ app.get('/users', (req, res) => {
 
 // GET ONE
 app.get('/oneuser', (req, res) => {
-  knex.raw('select * from users where user_id = 500000')
+  knex.raw('select * from users where user_id = 1000003')
   .then((user) => {
     res.send(user.rows)
   })
@@ -55,9 +55,12 @@ app.get('/oneuser', (req, res) => {
 //     .from('users')
 //     .where('user_id', req.params.user_id)
 //     .then((user) => {
-//       res.send(user.rows)
+//       res.send(user)
 //     })
-// })
+//     .catch((err) => {
+//       console.log('Error: ', err)
+//     })
+//   })
 
 // CREATE
 // Create one user, creates a user with hard coded values for test usage
