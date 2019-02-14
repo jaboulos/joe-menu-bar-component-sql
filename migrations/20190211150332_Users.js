@@ -6,7 +6,7 @@ exports.up = async function(knex, Promise) {
     table.string('profile_image_url');
     table.string('category');
     table.integer('followers');
-    table.integer('Following');
+    table.integer('following');
   })
 };
 

@@ -14,7 +14,7 @@ module.exports = [
     profile_image_url: faker.internet.url(),
     category: faker.company.bsAdjective(),
     followers: faker.random.number(),
-    Following: faker.random.number(),
+    following: faker.random.number(),
   }
 ];
 
