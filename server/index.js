@@ -64,40 +64,46 @@ app.get('/oneuser', (req, res) => {
 
 // CREATE
 // Create one user, creates a user with hard coded values for test usage
-app.post('/create', (req, res) => {
-  knex.raw('insert into users(display_name, logo, profile_image_url, category, followers, following) values(?, ?, ?, ?, ?, ?)', ['test', 'test', 'test', 'test', '1', '1'])
-  .then(() => {
-    knex.raw('select * from users order by user_id desc limit 1')
-    .then((users)=>{
-      res.send(users.rows);
-    })
-    .catch((err) => {
-      console.log('Error: ', err);
-    })
-  })
-});
-
-// shortcut method
-// create users dynamically
 // app.post('/create', (req, res) => {
-//   knex('users').insert({
-//     display_name: req.body.display_name,
-//     logo: req.body.logo,
-//     profile_image_url: req.body.profile_image_url,
-//     category: req.body.category,
-//     followers: req.body.followers,
-//     following: req.body.following
-//   })
-//   .then(() => {
-//     knex.raw('select * from users order by user_id desc limit 1')
-//     .then((users)=>{
-//       res.send(users.rows);
+//   knex.raw('insert into users(display_name, logo, profile_image_url, category, followers, following) values(?, ?, ?, ?, ?, ?)', ['test', 'test', 'test', 'test', '1', '1'])
+//   // .then(() => {
+//     // knex.raw('select * from users order by user_id desc limit 1')
+//     .then(()=>{
+//       res.sendStatus(201);
 //     })
 //     .catch((err) => {
 //       console.log('Error: ', err);
-//     })
+//     // })
 //   })
 // });
+
+// shortcut method
+// create users dynamically
+app.post('/create', (req, res) => {
+  knex('users').insert({
+    display_name: req.body.display_name,
+    logo: req.body.logo,
+    profile_image_url: req.body.profile_image_url,
+    category: req.body.category,
+    followers: req.body.followers,
+    following: req.body.following
+  })
+  .then(() => {
+    res.sendStatus(201);
+  })
+  .catch((err) => {
+    console.log('Error: ', err);
+  })
+  // .then(() => {
+  //   knex.raw('select * from users order by user_id desc limit 1')
+  //   .then((users)=>{
+  //     res.send(users.rows);
+  //   })
+  //   .catch((err) => {
+  //     console.log('Error: ', err);
+  //   })
+  // })
+});
 
 
 // UPDATE
@@ -108,7 +114,7 @@ app.put('/users/:user_id', (req, res) => {
     display_name: req.body.display_name
   })
   .then(() => {
-    console.log('Update successful')
+    res.sendStatus(200);
   })
   .catch((err) => {
     console.log('Error: ', err)
@@ -132,7 +138,7 @@ app.put('/users/:user_id', (req, res) => {
 app.delete('/users/:user_id', (req, res) => {
   knex.raw('delete from users where user_id = ?', req.params.user_id)
     .then(() => {
-      console.log('deleted user')
+      res.sendStatus(200);
     })
     .catch((err) => {
       console.log('Error: ', err)
