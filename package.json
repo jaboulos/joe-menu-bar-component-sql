@@ -44,6 +44,7 @@
     "bookshelf": "^0.14.2",
     "cors": "^2.8.5",
     "csv-write-stream": "^2.0.0",
+    "csv-writer": "^1.2.0",
     "event-stream": "^4.0.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
