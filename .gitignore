@@ -2,3 +2,4 @@ node_modules
 config
 client/dist/bundle.js
 bigsql
+package-lock.json
