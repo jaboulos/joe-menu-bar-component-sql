@@ -150,22 +150,10 @@ final2();
 final3();
 final4();
 
-<<<<<<< HEAD
-=======
-/*
-
-***"copy" command in postgres shell***
->>>>>>> a97fbd0e... generates 4 csvs with 2.5m records each
-
-
-// copy command in postgres shell
 /*
 COPY users(user_id,display_name,logo,profile_image_url,category,followers,following)
 FROM '/Users/joeboulos/Documents/javascript/sdc-group/joe-menu-bar-component-sql/csv/1_2500000_data.csv' DELIMITER ',' CSV HEADER;
 
-<<<<<<< HEAD
-*/
-=======
 ***Node command to allocate more memory to generate the csv, call command in csv directory***
 node --max-old-space-size=4096 csv_generator.js
 
@@ -173,6 +161,4 @@ Notes: 1:27mins to create 4 csv files with a total of 10m records
        3:09mins to import 2,500,000 records into table
        12:36mins to import 10,000,000 records into table
        14:03mins to generate 10m records and import 10m recrods into ec2 db
-
 */
->>>>>>> a97fbd0e... generates 4 csvs with 2.5m records each
