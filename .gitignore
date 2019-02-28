@@ -5,3 +5,4 @@ loaderio-576d84815d2a4f1123f163686d46f74c.txt
 client/dist/loaderio-576d84815d2a4f1123f163686d46f74c.txt
 .gitignore
 newrelic.js
+newrelic_agent.log
