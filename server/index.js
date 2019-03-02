@@ -40,7 +40,7 @@ app.get('/users', (req, res) => {
 
 // GET ONE
 app.get('/oneuser', (req, res) => {
-  knex.raw('select * from users where user_id = 1000003')
+  knex.raw('select * from users where user_id = 1000000')
   .then((user) => {
     res.send(user.rows)
   })
