@@ -1,6 +1,6 @@
 node_modules
-# config
+config
 client/dist/bundle.js
-# .gitignore
-# newrelic.js
-# newrelic_agent.log
+.gitignore
+newrelic.js
+newrelic_agent.log
