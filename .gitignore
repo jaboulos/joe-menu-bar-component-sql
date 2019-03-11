@@ -4,3 +4,7 @@ client/dist/bundle.js
 # .gitignore
 # newrelic.js
 # newrelic_agent.log
+csv/1_2500000_data.csv
+csv/2500001_5000000_data.csv
+csv/5000001_7500000_data.csv
+csv/7500001_10000000_data.csv

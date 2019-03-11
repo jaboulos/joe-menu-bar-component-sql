@@ -16,8 +16,8 @@ const makeUser = () => ({
 })
 
 exports.seed = async function(knex, Promise) {
-  const outerLoop = 1000;
-  const innerLoop = 10000;
+  const outerLoop = 1;
+  const innerLoop = 1;
   for(let i = 0; i < outerLoop; i++) {
     const usersArr = [];
     for(let j = 0; j < innerLoop; j++) {
