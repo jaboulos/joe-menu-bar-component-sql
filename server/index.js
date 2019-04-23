@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 // knex raw method
 app.get('/users', (req, res) => {
   // knex.raw('select * from users order by user_id asc limit 10')
-  knex.raw('select * from users order by user_id desc limit 10')
+  knex.raw('select * from Users order by followers desc limit 10')
   .then((users)=>{
     res.send(users.rows);
   })
@@ -27,7 +27,7 @@ app.get('/users', (req, res) => {
 
 // shortcut method
 // app.get('/users', (req, res) => {
-//   knex.select().from('users')
+//   knex.select().from('Users')
 //     .limit(10)
 //     .then((user)=>{
 //       res.send(user)
@@ -40,7 +40,7 @@ app.get('/users', (req, res) => {
 
 // GET ONE
 app.get('/oneuser', (req, res) => {
-  knex.raw('select * from users where user_id = 1000000')
+  knex.raw('select * from users where user_id = 1')
   .then((user) => {
     res.send(user.rows)
   })
@@ -109,7 +109,7 @@ app.post('/create', (req, res) => {
 
 // UPDATE
 // works, but working out on having it send json of the updated user correctly
-app.put('/users/:user_id', (req, res) => {
+app.put('/menu-users/:user_id', (req, res) => {
   // go to users table where user_id is equal to req.params.user_id...just updating display_name for test purposes
   knex('users').where('user_id', req.params.user_id).update({
     display_name: req.body.display_name
@@ -136,7 +136,7 @@ app.put('/users/:user_id', (req, res) => {
 
 // DELETE
 //knex raw
-app.delete('/users/:user_id', (req, res) => {
+app.delete('/menu-users/:user_id', (req, res) => {
   knex.raw('delete from users where user_id = ?', req.params.user_id)
     .then(() => {
       res.sendStatus(200);
