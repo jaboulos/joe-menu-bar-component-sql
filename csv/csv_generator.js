@@ -128,9 +128,9 @@ const final4 = function fakeData() {
   fs.writeFileSync('7500001_10000000_data.csv', objectToCsv(data), 'utf8');
 };
 
-final();
-final2();
-final3();
+// final();
+// final2();
+// final3();
 final4();
 
 /*

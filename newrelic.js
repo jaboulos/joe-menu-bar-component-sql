@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['twitch-menubar'],
+  app_name: ['twitch'],
   /**
    * Your New Relic license key.
    */
