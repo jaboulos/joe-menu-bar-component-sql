@@ -1,7 +1,7 @@
 // const knex = require('knex');
 
 exports.up = function(knex, Promise) {
-  knex.schema.createTable('users1', table => {
+  knex.schema.createTable('Users', table => {
     table.increments('user_id').primary();
     table.string('display_name');
     // logo string
